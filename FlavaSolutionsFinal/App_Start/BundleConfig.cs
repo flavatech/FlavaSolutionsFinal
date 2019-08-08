@@ -25,6 +25,22 @@ namespace FlavaSolutionsFinal
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new StyleBundle("~/Theme/css").Include(
+                     "~/Theme/vendor/fontawesome-free/css/all.min.css",
+                      "~/Theme/vendor/datatables/dataTables.bootstrap4.css",
+                       "~/Theme/css/sb-admin.css"));
+
+            bundles.Add(new ScriptBundle("~/Theme/js").Include(
+                     "~/Scripts/Theme/vendor/jquery/jquery.min.js",
+                     "~/Scripts/Theme/vendor/bootstrap/js/bootstrap.bundle.min.js",
+                     "~/Scripts/Theme/vendor/jquery-easing/jquery.easing.min.js",
+                     "~/Scripts/Theme/vendor/chart.js/Chart.min.js",
+                     "~/Scripts/Theme/vendor/datatables/jquery.dataTables.js",
+                     "~/Scripts/Theme/vendor/datatables/dataTables.bootstrap4.js",
+                     "~/Scripts/Theme/js/sb-admin.min.js",
+                     "~/Scripts/Theme/js/demo/datatables-demo.js",
+                      "~/Scripts/Theme/js/demo/chart-area-demo.js"));
         }
     }
 }

@@ -64,6 +64,12 @@ namespace FlavaSolutionsFinal.Models
 
     public class RegisterViewModel
     {
+
+
+        [Required]
+        [Display(Name = "User name")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -79,7 +85,22 @@ namespace FlavaSolutionsFinal.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+        [Required]
+        [Display(Name = "MobilePhone")]
+        public string MobilePhone { get; set; }
+
+
     }
+
 
     public class ResetPasswordViewModel
     {
