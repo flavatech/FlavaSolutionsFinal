@@ -2681,6 +2681,8 @@
     <Content Include="Theme2\scss\theme\_reset.scss" />
     <Content Include="Theme2\scss\theme\_variables.scss" />
     <Content Include="Views\Shared\IndexLayout.cshtml" />
+    <Content Include="Views\Shared\LoginLayout.cshtml" />
+    <Content Include="Views\Shared\UserLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -19,7 +19,9 @@ namespace FlavaSolutionsFinal
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-               
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                     "~/Scripts/bootstrap.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
@@ -53,8 +55,7 @@ namespace FlavaSolutionsFinal
                     "~/Theme1/SBadmin1/css/sb-admin.css"
                      ));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                     "~/Scripts/bootstrap.js"));
+            
 
             bundles.Add(new ScriptBundle("~/Theme/Js").Include(
                      "~/Scripts/Theme/js/jquery.js",

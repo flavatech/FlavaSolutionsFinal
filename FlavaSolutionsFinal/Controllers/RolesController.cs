@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity;
 using FlavaSolutionsFinal.Models;
 using FlavaSolutionsFinal;
+using System.Web.Security;
 
 namespace FlavaGymnSol.Controllers
 {
@@ -27,6 +28,8 @@ namespace FlavaGymnSol.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
+       [Authorize(Roles = "Administrator, Root")]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -137,6 +140,7 @@ new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Manager")]
         public ActionResult DeleteRoleForUser(string UserName, string RoleName)
         {
             var manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
