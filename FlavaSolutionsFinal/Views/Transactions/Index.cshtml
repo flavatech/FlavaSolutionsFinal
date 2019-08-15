@@ -1,0 +1,99 @@
+﻿@model IEnumerable<FlavaSolutionsFinal.Models.Transaction>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlanID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentFromdt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentTodt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NextRenwalDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActivityID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentFromdt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentTodt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NextRenwalDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

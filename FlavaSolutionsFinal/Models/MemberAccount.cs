@@ -10,8 +10,8 @@ namespace FlavaSolutionsFinal.Models
     {
         public int Id { get; set; }
         [Required]
-        [Display(Name ="Account #")]
-        public string AccountNumber { get; set; }
+        [Display(Name ="")]
+        public string UserId { get; set; }
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
         [Display(Name = "Last Name")]

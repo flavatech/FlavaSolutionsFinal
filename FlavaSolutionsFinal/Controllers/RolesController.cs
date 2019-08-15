@@ -146,11 +146,11 @@ new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             if (manager.IsInRole(user.Id, RoleName))
             {
                 manager.RemoveFromRole(user.Id, RoleName);
-                ViewBag.ResultMessage = "Role removed from this user successfully !";
+                ViewBag.Message = "Role removed from this user successfully !";
             }
             else
             {
-                ViewBag.ResultMessage = "This user doesn't belong to selected role.";
+                ViewBag.Message = "This user doesn't belong to selected role.";
             }
             // prepopulat roles for the view dropdown
             var list = context.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();

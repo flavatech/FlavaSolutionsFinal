@@ -36,6 +36,17 @@ namespace FlavaSolutionsFinal
                       "~/Theme1/font-awesome/css/font-awesome.min.css",
                        "~/Theme1/css/plugins/morris.css"));
 
+            bundles.Add(new StyleBundle("~/Theme2/Css").Include(
+                    "~/Theme2/css/linearicons.css",
+                     "~/Theme2/css/font-awesome.min.css",
+                     "~/Theme2/css/bootstrap.css",
+                      "~/Theme2/css/magnific-popup.css",
+                       "~/Theme2/css/nice-select.css",
+                     "~/Theme2/css/animate.min.css",
+                     "~/Theme2/css/owl.carousel.css",
+                      "~/Theme2/css/main.css"));
+
+
             bundles.Add(new StyleBundle("~/Theme1/SBadmin1/Css").Include(
                     "~/Theme1/SBadmin1/vendor/fontawesome-free/css/all.min.css",
                     "~/Theme1/SBadmin1/vendor/datatables/dataTables.bootstrap4.css",
@@ -69,6 +80,27 @@ namespace FlavaSolutionsFinal
                     "~/Theme1/SBadmin1/js/sb-admin.min.js",
                     "~/Theme1/SBadmin1/js/demo/datatables-demo.js",
                     "~/Theme1/SBadmin1/js/demo/chart-area-demo.js"));
+
+            bundles.Add(new ScriptBundle("~/Theme2/Js").Include(
+                    "~/Theme2/js/vendor/jquery-2.2.4.min.js",
+                    "~/Theme2/https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js",
+                   "~/Theme2/js/vendor/bootstrap.min.js",
+                   "~/Theme2/text/javascript",
+                   "~/Theme2/js/easing.min.js",
+                    "~/Theme2/js/hoverIntent.js",
+                   "~/Theme2/js/superfish.min.js",
+                   "~/Theme2/js/jquery.ajaxchimp.min.js",
+                   "~/Theme2/js/jquery.magnific-popup.min.js",
+                   "~/Theme2/js/owl.carousel.min.js",
+                   "~/Theme2/js/jquery.sticky.js",
+                   "~/Theme2/js/jquery.nice-select.min.js",
+                   "~/Theme2/js/parallax.min.js",
+                   "~/Theme2/js/waypoints.min.js",
+                   "~/Theme2/js/jquery.counterup.min.js",
+                   "~/Theme2/js/mail-script.js",
+                   "~/Theme2/js/main.js"));
+
+
 
 
 

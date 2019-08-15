@@ -1,0 +1,114 @@
+﻿@model FlavaSolutionsFinal.Models.Transaction
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transaction</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentFromdt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentFromdt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentTodt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentTodt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NextRenwalDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NextRenwalDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserID)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

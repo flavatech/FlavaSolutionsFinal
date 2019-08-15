@@ -1,0 +1,98 @@
+﻿@model FlavaSolutionsFinal.Models.Plan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Plan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PlanAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PlanAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PeriodID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PeriodID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalAmout)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalAmout)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlanID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

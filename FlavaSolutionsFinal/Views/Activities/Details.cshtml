@@ -1,0 +1,42 @@
+﻿@model FlavaSolutionsFinal.Models.Activity
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Activity</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createdby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createdby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createddate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ActivityID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
