@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FlavaSolutionsFinal.Models
@@ -65,6 +66,8 @@ namespace FlavaSolutionsFinal.Models
     public class RegisterViewModel
     {
 
+        [Display(Name = "UserPhoto")]
+        public byte[] UserPhoto { get; set; }
 
         [Required]
         [Display(Name = "User name")]
@@ -74,6 +77,10 @@ namespace FlavaSolutionsFinal.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Date of Birth")]
+        public DateTime DateOfBirth { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]

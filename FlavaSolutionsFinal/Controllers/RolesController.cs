@@ -48,6 +48,9 @@ namespace FlavaGymnSol.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Root")]
         public ActionResult Delete(string RoleName)
         {
             var thisRole = context.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
@@ -58,6 +61,9 @@ namespace FlavaGymnSol.Controllers
 
         //
         // GET: /Roles/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator, Root")]
         public ActionResult Edit(string roleName)
         {
             var thisRole = context.Roles.Where(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();

@@ -1,16 +1,23 @@
 ﻿@model FlavaSolutionsFinal.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
-     Layout = "~/Views/Shared/LoginLayout.cshtml";
+    Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
 }
 
 <h2>@ViewBag.Title.</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <h4>Create a new account.</h4>
+
     <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.UserPhoto, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <input type="file" name="UserPhoto" id="fileUpload" accept=".png,.jpg,.jpeg,.gif,.tif" />
+        </div>
+    </div>
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
@@ -45,6 +52,14 @@
         </div>
     </div>
 
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.DateOfBirth, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.DateOfBirth, new { @class = "form-control" })
+        </div>
+    </div>
+
 
     <hr />
     <div class="form-group">
@@ -75,6 +90,17 @@
 
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+        <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+        <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+        <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            $("#DateOfBirth").datepicker();
+        });
+        </script>
+        /**/
+        /**/
+    }

@@ -243,6 +243,14 @@
     <Compile Include="Migrations\201908142113194_memberAccountTest.Designer.cs">
       <DependentUpon>201908142113194_memberAccountTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908170611499_Addedprofilephoto.cs" />
+    <Compile Include="Migrations\201908170611499_Addedprofilephoto.Designer.cs">
+      <DependentUpon>201908170611499_Addedprofilephoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908171718438_AddedDOB.cs" />
+    <Compile Include="Migrations\201908171718438_AddedDOB.Designer.cs">
+      <DependentUpon>201908171718438_AddedDOB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
@@ -2206,7 +2214,7 @@
     <Content Include="Views\Shared\_GridPager.cshtml" />
     <Content Include="Views\Shared\_Grid.cshtml" />
     <Content Include="Views\Shared\_AjaxGridPager.cshtml" />
-    <Content Include="Views\Shared\AdminDash.cshtml" />
+    <Content Include="Views\Shared\Custom\AdminDash.cshtml" />
     <Content Include="Theme\.git\COMMIT_EDITMSG" />
     <Content Include="Theme\.git\config" />
     <Content Include="Theme\.git\description" />
@@ -2524,7 +2532,7 @@
     <Content Include="Theme1\SBadmin1\vendor\fontawesome-free\webfonts\fa-solid-900.woff2" />
     <Content Include="Theme1\SBadmin1\vendor\jquery\jquery.min.map" />
     <Content Include="Theme1\SBadmin1\vendor\jquery\jquery.slim.min.map" />
-    <Content Include="Views\Shared\AdminDash1.cshtml" />
+    <Content Include="Views\Shared\Custom\AdminDash1.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -2680,9 +2688,10 @@
     <Content Include="Theme2\scss\theme\_mixins.scss" />
     <Content Include="Theme2\scss\theme\_reset.scss" />
     <Content Include="Theme2\scss\theme\_variables.scss" />
-    <Content Include="Views\Shared\IndexLayout.cshtml" />
-    <Content Include="Views\Shared\LoginLayout.cshtml" />
-    <Content Include="Views\Shared\UserLayout.cshtml" />
+    <Content Include="Views\Shared\Custom\IndexLayout.cshtml" />
+    <Content Include="Views\Shared\Custom\LoginLayout.cshtml" />
+    <Content Include="Views\Shared\Custom\UserLayout.cshtml" />
+    <Content Include="Views\Home\UserProfileMember.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2713,6 +2722,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908142113194_memberAccountTest.resx">
       <DependentUpon>201908142113194_memberAccountTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908170611499_Addedprofilephoto.resx">
+      <DependentUpon>201908170611499_Addedprofilephoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908171718438_AddedDOB.resx">
+      <DependentUpon>201908171718438_AddedDOB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
