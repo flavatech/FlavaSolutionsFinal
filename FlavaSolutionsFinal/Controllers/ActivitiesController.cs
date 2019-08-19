@@ -1,15 +1,23 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using FlavaSolutionsFinal.Models;
+using DocumentFormat.OpenXml.ExtendedProperties;
 
 namespace FlavaSolutionsFinal.Controllers
 {
+
+
+
     public class ActivitiesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -36,8 +44,12 @@ namespace FlavaSolutionsFinal.Controllers
         }
 
         // GET: Activities/Create
+        
         public ActionResult Create()
         {
+           
+        
+
             return View();
         }
 
@@ -50,6 +62,8 @@ namespace FlavaSolutionsFinal.Controllers
         {
             if (ModelState.IsValid)
             {
+                activity.CreatedDate = DateTime.Now;
+                activity.Createdby = User.Identity.Name;
                 db.activities.Add(activity);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -82,6 +96,8 @@ namespace FlavaSolutionsFinal.Controllers
         {
             if (ModelState.IsValid)
             {
+               activity.ModifiedDate = DateTime.Now;
+                activity.ModifiedBy = User.Identity.Name;
                 db.Entry(activity).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

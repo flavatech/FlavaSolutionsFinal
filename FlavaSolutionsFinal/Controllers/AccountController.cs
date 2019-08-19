@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FlavaSolutionsFinal.Models;
 using System.IO;
+using System.Web.Security;
 
 namespace FlavaSolutionsFinal.Controllers
 {
@@ -19,14 +20,18 @@ namespace FlavaSolutionsFinal.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
+            
+
         public AccountController()
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, ApplicationUserManager Rolemanager
+            )
         {
             UserManager = userManager;
             SignInManager = signInManager;
+           
         }
 
         public ApplicationSignInManager SignInManager
@@ -71,9 +76,10 @@ namespace FlavaSolutionsFinal.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                
+                    return View(model);
+                
             }
-
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
            var user = await UserManager.FindAsync(model.Email, model.Password);
@@ -478,7 +484,16 @@ namespace FlavaSolutionsFinal.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Contact", "Home");
+
+            if (!Roles.IsUserInRole(User.Identity.Name, "Administrator"))
+            {
+                return RedirectToAction("AdminProfile","Home");
+            }
+
+            else { 
+
+            return RedirectToAction("MemberProfile", "Home");
+            }
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

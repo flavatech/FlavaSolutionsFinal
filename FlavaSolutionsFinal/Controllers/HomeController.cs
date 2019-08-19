@@ -64,9 +64,16 @@ namespace FlavaSolutionsFinal.Controllers
             return View();
         }
 
-        public ActionResult UserProfileMember()
+        public ActionResult AdminProfile()
         {
-            ViewBag.Message = "Your Profile Page.";
+            ViewBag.Message = "Admin Profile Page.";
+
+            return View();
+        }
+
+        public ActionResult MemberProfile()
+        {
+            ViewBag.Message = "Member Profile Page.";
 
             return View();
         }

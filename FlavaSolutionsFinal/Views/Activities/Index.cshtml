@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-}
+ Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";}
 
 <h2>Index</h2>
 
@@ -18,28 +18,40 @@
             @Html.DisplayNameFor(model => model.Createdby)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Createddate)
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ActivityName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Createdby)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Createddate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ActivityID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ActivityID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ActivityID })
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.ActivityName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Createdby)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CreatedDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ModifiedBy)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ModifiedDate)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ActivityID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ActivityID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ActivityID })
+    </td>
+</tr>
 }
 
 </table>

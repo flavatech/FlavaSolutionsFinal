@@ -1,12 +1,17 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using FlavaSolutionsFinal.Models;
+using DocumentFormat.OpenXml.ExtendedProperties;
 
 namespace FlavaSolutionsFinal.Controllers
 {
@@ -50,6 +55,8 @@ namespace FlavaSolutionsFinal.Controllers
         {
             if (ModelState.IsValid)
             {
+                transaction.CreatedDate = DateTime.Now;
+                transaction.CreatedBy = User.Identity.Name;
                 db.transactions.Add(transaction);
                 db.SaveChanges();
                 return RedirectToAction("Index");

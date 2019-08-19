@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Details";
-}
+ Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";}
 
 <h2>Details</h2>
 
@@ -27,11 +27,27 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Createddate)
+            @Html.DisplayNameFor(model => model.CreatedDate)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Createddate)
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
         </dd>
 
     </dl>

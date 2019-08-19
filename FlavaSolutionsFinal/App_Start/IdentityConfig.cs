@@ -137,5 +137,6 @@ namespace FlavaSolutionsFinal
         {
             return new ApplicationSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
+
     }
 }

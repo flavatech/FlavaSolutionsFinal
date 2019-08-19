@@ -32,11 +32,11 @@ namespace FlavaSolutionsFinal.Models
         public DbSet<Transaction> transactions { get; set; }
         public DbSet<MemberAccount> memberAccounts { get; set; }
 
-        public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+       public ApplicationDbContext()
+          : base("DefaultConnection", throwIfV1Schema: false)
 
         {
-        }
+         }
 
         public static ApplicationDbContext Create()
         {

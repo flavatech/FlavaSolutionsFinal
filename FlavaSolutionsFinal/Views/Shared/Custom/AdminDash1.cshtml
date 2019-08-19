@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <<nav class="navbar navbar-expand navbar-dark bg-dark static-top">
+    <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
          <a class="navbar-brand mr-1" href="index.html">FlavaSolutions Gymn Management</a>
 
@@ -60,8 +60,7 @@
                     <i class="fas fa-user-circle fa-fw"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Activity Log</a>
+                   
                     <a class="dropdown-item" href="/manage/changepassword">Reset Password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
@@ -80,7 +79,77 @@
                      <i class="fas fa-fw fa-tachometer-alt"></i>
                      <span>Back to Home</span>
                  </a>
+
+             <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-fw fa-folder"></i>
+                     <span>Setup Application</span>
+                 </a>
+                 <!-- This is another set of menus for the sidebar-->
+             <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-fw fa-folder"></i>
+                     <span>Manage Activities</span>
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                     <h6 class="dropdown-header">Setup Activities:</h6>
+                     <a class="dropdown-item" href="/activities/index">List Activities</a>
+                     <a class="dropdown-item" href="/activities/Create">Create Activities</a>
+
+                 </div>
              </li>
+
+             <!-- This is another set of menus for the sidebar-->
+             <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-fw fa-folder"></i>
+                     <span></span>
+                     <span>Manage Plans</span>
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                     <h6 class="dropdown-header">Setup Plans:</h6>
+
+                     <a class="dropdown-item" href="/plans/index">List Plans</a>
+                     <a class="dropdown-item" href="/plans/Create">Create Plans</a>
+
+                 </div>
+             </li>
+
+             <!-- This is another set of menus for the sidebar-->
+             <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-fw fa-folder"></i>
+                     <span></span>
+                     <span>Manage Trainers</span>
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                     <h6 class="dropdown-header">Trainers:</h6>
+                     <h6 class="dropdown-header">Setup Trainers:</h6>
+                     <a class="dropdown-item" href="/trainers/index">List Trainers</a>
+                     <a class="dropdown-item" href="/trainers/Create">Create Trainer</a>
+                 </div>
+             </li>
+             <!-- This is another set of menus for the sidebar-->
+             <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-fw fa-folder"></i>
+                     <span></span>
+                     <span>Manage Transactions</span>
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                     <h6 class="dropdown-header">Transactions:</h6>
+                    
+                     <a class="dropdown-item" href="/trainers/index">List Transactions</a>
+                     <a class="dropdown-item" href="/trainers/Create">Create Transactions</a>
+
+
+
+                 </div>
+             </li>
+
+
+
              <li class="nav-item dropdown">
                  <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fas fa-fw fa-folder"></i>
@@ -88,36 +157,13 @@
                  </a>
                  <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                      <h6 class="dropdown-header">Users and Permissions:</h6>
-                     <a class="dropdown-item" @Html.ActionLink("List Roles", "Index", "Roles")></a>
-                     <a class="dropdown-item" @Html.ActionLink("Add Roles", "Create", "Roles")></a>
-                     <a class="dropdown-item" @Html.ActionLink("Edit Roles", "Edit", "Roles")></a>
-                     <a class="dropdown-item" @Html.ActionLink("Manage Users", "ManageUsers", "Roles")></a>
+                     <a class="dropdown-item" href="/roles/index">List Roles</a>
+                     <a class="dropdown-item" href="/roles/Create">Create Role</a>
+                     <a class="dropdown-item" href="/roles/manageusers">Manage Users</a>
 
-                     <div class="dropdown-divider"></div>
-                     <h6 class="dropdown-header">Other Pages:</h6>
-                     <a class="dropdown-item" href="404.html">404 Page</a>
-                     <a class="dropdown-item" href="blank.html">Blank Page</a>
                  </div>
              </li>
-             <!-- This is another set of menus for the sidebar-->
-             <li class="nav-item dropdown">
-                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     <i class="fas fa-fw fa-folder"></i>
-                     <span>System</span>
-                 </a>
-                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                     <h6 class="dropdown-header">Trainers:</h6>
-                     <a class="dropdown-item" @Html.ActionLink("List Roles", "Index", "Roles")></a>
-                     <a class="dropdown-item" @Html.ActionLink("Add Roles", "Create", "Roles")></a>
-                     <a class="dropdown-item" @Html.ActionLink("Edit Roles", "Edit", "Roles")></a>
-                     <a class="dropdown-item" @Html.ActionLink("Manage Users", "ManageUsers", "Roles")></a>
 
-                     <div class="dropdown-divider"></div>
-                     <h6 class="dropdown-header">Other Pages:</h6>
-                     <a class="dropdown-item" href="404.html">404 Page</a>
-                     <a class="dropdown-item" href="blank.html">Blank Page</a>
-                 </div>
-             </li>
 
 
              <li class="nav-item">

@@ -2,11 +2,13 @@
 
 @{
     ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
+
 }
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="alert alert-danger">Are you sure you want to delete this?</h3>
 <div>
     <h4>Plan</h4>
     <hr />
@@ -28,11 +30,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CreateBy)
+            @Html.DisplayNameFor(model => model.Createdby)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CreateBy)
+            @Html.DisplayFor(model => model.Createdby)
         </dd>
 
         <dt>
@@ -93,11 +95,12 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

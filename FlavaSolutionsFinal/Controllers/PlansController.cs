@@ -1,12 +1,17 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using FlavaSolutionsFinal.Models;
+using DocumentFormat.OpenXml.ExtendedProperties;
 
 namespace FlavaSolutionsFinal.Controllers
 {
@@ -38,6 +43,7 @@ namespace FlavaSolutionsFinal.Controllers
         // GET: Plans/Create
         public ActionResult Create()
         {
+           
             return View();
         }
 
@@ -50,6 +56,9 @@ namespace FlavaSolutionsFinal.Controllers
         {
             if (ModelState.IsValid)
             {
+                
+                plan.CreatedDate = DateTime.UtcNow;
+                plan.Createdby = User.Identity.Name;
                 db.plans.Add(plan);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -70,6 +79,7 @@ namespace FlavaSolutionsFinal.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ModifiedBy = User.Identity.Name;
             return View(plan);
         }
 
@@ -82,6 +92,8 @@ namespace FlavaSolutionsFinal.Controllers
         {
             if (ModelState.IsValid)
             {
+                plan.ModifiedDate = DateTime.UtcNow;
+                plan.ModifiedBy = User.Identity.Name;
                 db.Entry(plan).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -101,6 +113,8 @@ namespace FlavaSolutionsFinal.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DeletedBy = User.Identity.Name;
+
             return View(plan);
         }
 
@@ -109,7 +123,9 @@ namespace FlavaSolutionsFinal.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+           
             Plan plan = db.plans.Find(id);
+            
             db.plans.Remove(plan);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,27 +11,47 @@ namespace FlavaSolutionsFinal.Models
 {
     public class Plan
     {
-        [Key]
+      
         public int PlanID { get; set; }
-        [Remote("PlannameExists", "Plan", ErrorMessage = "Plan Name Already Exists ")]
+
         [Required(ErrorMessage = "Enter Plan Name")]
+        [Display(Name = "Plan Name")]
         public string PlanName { get; set; }
-        [Required(ErrorMessage = "Enter Plan Fee")]
+
+        [Required(ErrorMessage = "Plan Amount")]
+        [Display(Name = "Plan Amount")]
         public Double? PlanAmount { get; set; }
-        [Required(ErrorMessage = "Enter Servicetax Amout")]
-         public int CreateBy { get; set; }
-        public int ModifiedBy { get; set; }
-        public string RecStatus { get; set; }
-        [Display(Name = "Activity")]
+
         
+
+        [Display(Name = "Rec Status")]
+        public string RecStatus { get; set; }
+
+        [Display(Name = "Activity")]
         public int? ActivityID { get; set; }
 
         [Display(Name = "Period")]
         public int? PeriodID { get; set; }
 
+
+        [Display(Name = "Total")]
         public int? TotalAmout { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime ModifiedDate { get; set; }
+
+        [Display(Name = "Created Date")]
+        [DataType(DataType.Date)]
+        public DateTime? CreatedDate { get; set; }
+
+        [Display(Name = "Created By")]
+        public string Createdby { get; set; }
+
+        [Display(Name = "Last Modified By")]
+        public string ModifiedBy { get; set; }
+
+        [Display(Name = "Last Modified Date")]
+        [DataType(DataType.Date)]
+        public DateTime? ModifiedDate { get; set; }
+
+
         [NotMapped]
         public IEnumerable<Activity> ListScheme { get; set; }
         [NotMapped]

@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Delete";
+      Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2 class="alert alert-danger">Delete Transaction</h2>
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
@@ -113,7 +114,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }
