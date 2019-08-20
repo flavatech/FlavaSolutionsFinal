@@ -91,8 +91,8 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="SendGrid, Version=9.11.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sendgrid.9.11.0\lib\net452\SendGrid.dll</HintPath>
+    <Reference Include="SendGrid, Version=9.12.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.12.0\lib\net452\SendGrid.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -2288,8 +2288,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
-    <Content Include="Views\Roles\Edit.cshtml" />
-    <Content Include="Views\Roles\GetRoles.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
     <Content Include="Views\Roles\ManageUsers.cshtml" />
     <Content Include="Views\Shared\_GridPager.cshtml" />
@@ -2774,6 +2772,7 @@
     <Content Include="Views\Shared\Custom\UserLayout.cshtml" />
     <Content Include="Views\Shared\MemberLayout.cshtml" />
     <Content Include="Views\Home\AdminProfile.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

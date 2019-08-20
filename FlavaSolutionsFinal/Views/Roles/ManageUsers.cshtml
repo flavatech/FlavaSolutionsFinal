@@ -1,16 +1,14 @@
-﻿@using GridMvc.Html
-@*@model Microsoft.AspNet.EntityFramework.IdentityUser*@
+﻿@{
+    ViewBag.Title = "ManageUserRoles";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 
-@{
-    ViewBag.Title = "ManageUsers";
- Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2>Manage User Roles</h2>
-<!--@@Html.ActionLink("Create New Role", "Create")--> | @Html.ActionLink("Manage User Roles", "ManageUsers")
+<h3 class="alert alert-info">Manage Users And Roles</h3>
+@Html.ActionLink("Create New Role", "Create") | @Html.ActionLink("Manage User Role", "ManageUsers")
 <hr />
 
-<h2>Role Add to User</h2>
+<h3 class="alert alert-success">Add Role to User</h3>
 
 @using (Html.BeginForm("RoleAddToUser", "Roles"))
 {
@@ -22,20 +20,21 @@
         Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
 
     </p>
+    <input type="submit" value="Add User to this Role" class="btn btn-success" />
 
-    <input type="submit" value="Save" />
 }
 <hr />
-<h3>Get Roles for a User</h3>
+<h3 class="alert alert-warning">Get Roles for a User</h3>
 @using (Html.BeginForm("GetRoles", "Roles"))
 {
     @Html.AntiForgeryToken()
     <p>
         Username : @Html.TextBox("UserName")
-        <input type="submit" value="Get Roles for this User" />
-    </p>
 
+    </p>
+    <input type="submit" class="btn btn-primary" value="Get Roles for this User" />
 }
+
 
 @if (ViewBag.RolesForThisUser != null)
 {
@@ -51,7 +50,7 @@
 }
 
 <hr />
-<h3>Delete A User from a Role</h3>
+<h3 class="alert alert-danger">Delete A User from a Role</h3>
 
 @using (Html.BeginForm("DeleteRoleForUser", "Roles"))
 {
@@ -63,6 +62,6 @@
         Role Name: @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles, "Select ...")
 
     </p>
+    <input type="submit" class="btn btn-danger" value="Delete this user from Role" />
 
-    <input type="submit" value="Delete this user from Role" />
 }

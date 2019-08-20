@@ -6,9 +6,9 @@
 Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2>Roles Listing </h2>
+<h4 class="alert alert-info">List of Roles </h4>
 
-<!--@@Html.ActionLink("Create New Role", "Create") -->| @Html.ActionLink("Manage User Roles", "ManageUsers")
+@Html.ActionLink("Create New Role", "Create")| @Html.ActionLink("Manage User Roles", "ManageUsers")
 <hr />
 <div>
     @foreach (var role in Model)

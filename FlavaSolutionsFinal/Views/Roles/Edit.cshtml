@@ -1,12 +1,13 @@
-﻿@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+﻿
+@model Microsoft.AspNet.Identity.EntityFramework.IdentityRole
 @{
     ViewBag.Title = "Edit";
-  Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+     Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2>Edit Role</h2>
+<h4 class="alert alert-primary">Edit Role</h4>
 
-@Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Create Role", "Create")
+@Html.ActionLink("List Roles", "Index") | @Html.ActionLink("Manage User Role", "ManageUsers")
 <hr />
 @using (Html.BeginForm())
 {
@@ -19,5 +20,5 @@
     <p>
         @Html.TextBoxFor(model => model.Name)
     </p>
-    <input type="submit" value="Save" />
+    <input type="submit" value="Save" class="btn btn-primary" />
 }
