@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Create";
- Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";}
+ Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+    }
 
-<h2>Create</h2>
+
 
 
 @using (Html.BeginForm())
@@ -12,7 +13,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4 class="alert alert-success">Activity</h4>
+        <h3 class="alert alert-success">Create Activity</h3>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

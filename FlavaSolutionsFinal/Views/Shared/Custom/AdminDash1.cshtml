@@ -84,8 +84,41 @@
                  <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fas fa-fw fa-folder"></i>
                      <span>Setup Application</span>
+
                  </a>
-                 <!-- This is another set of menus for the sidebar-->
+                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                     <h6 class="dropdown-header">Basic Settings</h6>
+                     <a class="dropdown-item" href="/periods/create">Setup Periods</a>
+                     <a class="dropdown-item" href="/activities/create">Create Activity</a>
+                     <a class="dropdown-item" href="/paymenttypes/create">Create Payment Types</a>
+                     <a class="dropdown-item" href="/plans/create">Create Plan</a>
+                     <a class="dropdown-item" href="/trainers/create">Create Trainers</a>
+                     <hr style="height:10px">
+                 </div>
+                
+             </li>
+
+
+             <!-- Perform transaction-->
+
+             <li class="nav-item dropdown">
+                 <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <i class="fas fa-fw fa-folder"></i>
+                     <span>Perform Transaction</span>
+
+                 </a>
+                 <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+
+                     <h6 class="dropdown-header">Basic Settings</h6>
+                     <a class="dropdown-item" href="/transactions/create">Setup Periods</a>
+                     <a class="dropdown-item" href="/transactions/index">List Transactions</a>
+                    
+                     <hr style="height:10px">
+                 </div>
+                 <hr style="height:10px">
+             </li>
+             <!-- This is another set of menus for the sidebar-->
              <li class="nav-item dropdown">
                  <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                      <i class="fas fa-fw fa-folder"></i>
@@ -139,7 +172,7 @@
                  </a>
                  <div class="dropdown-menu" aria-labelledby="pagesDropdown">
                      <h6 class="dropdown-header">Transactions:</h6>
-                    
+
                      <a class="dropdown-item" href="/trainers/index">List Transactions</a>
                      <a class="dropdown-item" href="/trainers/Create">Create Transactions</a>
 
@@ -300,8 +333,9 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" @Html.ActionLink("Logout", "Login", "Account")></a>
+                    <a class="btn btn-primary" @Html.ActionLink("Logout", "Login", "Account") </a>
                 </div>
+                
             </div>
         </div>
     </div>

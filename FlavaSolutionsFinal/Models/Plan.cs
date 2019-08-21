@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -22,16 +23,13 @@ namespace FlavaSolutionsFinal.Models
         [Display(Name = "Plan Amount")]
         public Double? PlanAmount { get; set; }
 
-        
-
-        [Display(Name = "Rec Status")]
-        public string RecStatus { get; set; }
-
-        [Display(Name = "Activity")]
+       [Display(Name = "Activity")]
         public int? ActivityID { get; set; }
+        public Activity Activity { get; set; }
 
         [Display(Name = "Period")]
         public int? PeriodID { get; set; }
+        public Period Period { get; set; }
 
 
         [Display(Name = "Total")]
@@ -51,11 +49,10 @@ namespace FlavaSolutionsFinal.Models
         [DataType(DataType.Date)]
         public DateTime? ModifiedDate { get; set; }
 
+        [NotMapped]
+        public ICollection<Transaction> Transactions { get; set; }
 
-        [NotMapped]
-        public IEnumerable<Activity> ListScheme { get; set; }
-        [NotMapped]
-        public IEnumerable<SelectListItem> ListofPeriod { get; set; }
+
 
     }
 }

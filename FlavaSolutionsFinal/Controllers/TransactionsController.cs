@@ -1,17 +1,12 @@
-﻿using Microsoft.AspNet.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Security.Principal;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using FlavaSolutionsFinal.Models;
-using DocumentFormat.OpenXml.ExtendedProperties;
 
 namespace FlavaSolutionsFinal.Controllers
 {
@@ -22,7 +17,8 @@ namespace FlavaSolutionsFinal.Controllers
         // GET: Transactions
         public ActionResult Index()
         {
-            return View(db.transactions.ToList());
+            var transactions = db.transactions.Include(t => t.Activity).Include(t => t.PaymentType).Include(t => t.Period).Include(t => t.Plan);
+            return View(transactions.ToList());
         }
 
         // GET: Transactions/Details/5
@@ -43,6 +39,10 @@ namespace FlavaSolutionsFinal.Controllers
         // GET: Transactions/Create
         public ActionResult Create()
         {
+            ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName");
+            ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName");
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "Year");
+            ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName");
             return View();
         }
 
@@ -51,7 +51,7 @@ namespace FlavaSolutionsFinal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,PlanID,ActivityID,PaymentType,PaymentFromdt,PaymentTodt,PaymentAmount,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,UserID")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "id,PlanID,ActivityID,PeriodID,PaymentTypeID,PaymentFromdt,PaymentTodt,PaymentAmount,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,UserID")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +62,10 @@ namespace FlavaSolutionsFinal.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName", transaction.ActivityID);
+            ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName", transaction.PaymentTypeID);
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "Year", transaction.PeriodID);
+            ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName", transaction.PlanID);
             return View(transaction);
         }
 
@@ -77,6 +81,10 @@ namespace FlavaSolutionsFinal.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName", transaction.ActivityID);
+            ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName", transaction.PaymentTypeID);
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "Year", transaction.PeriodID);
+            ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName", transaction.PlanID);
             return View(transaction);
         }
 
@@ -85,14 +93,20 @@ namespace FlavaSolutionsFinal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,PlanID,ActivityID,PaymentType,PaymentFromdt,PaymentTodt,PaymentAmount,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,UserID")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "id,PlanID,ActivityID,PeriodID,PaymentTypeID,PaymentFromdt,PaymentTodt,PaymentAmount,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy,UserID")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
+                transaction.ModifiedDate = DateTime.Now;
+                transaction.ModifiedBy = User.Identity.Name;
                 db.Entry(transaction).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName", transaction.ActivityID);
+            ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName", transaction.PaymentTypeID);
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "Year", transaction.PeriodID);
+            ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName", transaction.PlanID);
             return View(transaction);
         }
 

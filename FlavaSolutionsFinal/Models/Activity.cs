@@ -1,6 +1,8 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,5 +30,11 @@ namespace FlavaSolutionsFinal.Models
 
         [Display(Name = "Last Modified Date")]
         public DateTime? ModifiedDate { get; set; }
+
+        [NotMapped]
+        public ICollection<Plan> Plans { get; set; }
+
+        [NotMapped]
+        public ICollection<Transaction> Transactions { get; set; }
     }
 }

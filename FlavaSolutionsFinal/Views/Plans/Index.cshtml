@@ -2,11 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
-
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2 class="alert alert-primary">Index</h2>
+<h3 class="alert alert-primary">List of Plans</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -14,25 +13,19 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.Activity.ActivityName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Period.Year)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.PlanName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PlanAmount)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Createdby)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.RecStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ActivityID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PeriodID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.TotalAmout)
@@ -41,50 +34,55 @@
             @Html.DisplayNameFor(model => model.CreatedDate)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Createdby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ModifiedDate)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlanName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PlanAmount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Createdby)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ActivityID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PeriodID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalAmout)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedDate)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PlanID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.PlanID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.PlanID })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Activity.ActivityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Period.Year)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlanAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmout)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Createdby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PlanID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PlanID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PlanID })
+        </td>
+    </tr>
+}
 
 </table>

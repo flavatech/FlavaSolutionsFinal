@@ -2,11 +2,12 @@
 
 @{
     ViewBag.Title = "Delete";
+     Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="alert alert-danger">Are you sure you want to delete this?</h3>
 <div>
     <h4>Period</h4>
     <hr />
@@ -27,21 +28,14 @@
             @Html.DisplayFor(model => model.FiscalyearToDate)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Year)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Year)
-        </dd>
-
+        
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

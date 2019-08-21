@@ -20,7 +20,7 @@ namespace FlavaSolutionsFinal.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
-            
+
 
         public AccountController()
         {
@@ -31,7 +31,7 @@ namespace FlavaSolutionsFinal.Controllers
         {
             UserManager = userManager;
             SignInManager = signInManager;
-           
+
         }
 
         public ApplicationSignInManager SignInManager
@@ -40,9 +40,9 @@ namespace FlavaSolutionsFinal.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -76,14 +76,15 @@ namespace FlavaSolutionsFinal.Controllers
         {
             if (!ModelState.IsValid)
             {
-                
-                    return View(model);
-                
+
+                return View(model);
             }
+           
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-           var user = await UserManager.FindAsync(model.Email, model.Password);
-           if (user != null && user.EmailConfirmed)
+            var user = await UserManager.FindAsync(model.Email, model.Password);
+            if (user != null && user.EmailConfirmed)
             {
                 var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
                 switch (result)
@@ -110,7 +111,7 @@ namespace FlavaSolutionsFinal.Controllers
                 return View(model);
             }
         }
-
+    
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
@@ -484,17 +485,28 @@ namespace FlavaSolutionsFinal.Controllers
             {
                 return Redirect(returnUrl);
             }
+             // return RedirectToAction("index", "Home");
 
             if (!Roles.IsUserInRole(User.Identity.Name, "Administrator"))
             {
-                return RedirectToAction("AdminProfile","Home");
+                return RedirectToAction("AdminProfile", "Home");
             }
 
-            else { 
+            else if 
+                 (!Roles.IsUserInRole(User.Identity.Name, "Supervisor"))
+            {
+               return RedirectToAction("Contact", "Home");
+                }
 
-            return RedirectToAction("MemberProfile", "Home");
+                else {
+
+                return RedirectToAction("MemberProfile", "Home");
             }
         }
+    
+
+
+
 
         internal class ChallengeResult : HttpUnauthorizedResult
         {

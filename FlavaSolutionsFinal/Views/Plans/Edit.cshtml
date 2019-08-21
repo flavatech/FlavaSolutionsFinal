@@ -2,19 +2,18 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
-
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2 class="alert alert-info">Edit</h2>
+
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-
+    
     <div class="form-horizontal">
-        <h4>Plan</h4>
+        <h3 class="alert alert-info">Edit Plan</h3>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.PlanID)
@@ -35,10 +34,6 @@
             </div>
         </div>
 
-
-
-
-
         <div class="form-group">
             @Html.LabelFor(model => model.RecStatus, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -48,17 +43,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ActivityID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ActivityID, "ActivityID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ActivityID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("ActivityID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ActivityID, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.PeriodID, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.PeriodID, "PeriodID", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PeriodID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownList("PeriodID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.PeriodID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -71,13 +66,17 @@
             </div>
         </div>
 
+       
 
+        
 
+        
 
+       
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value="Save" class="btn btn-info" />
             </div>
         </div>
     </div>

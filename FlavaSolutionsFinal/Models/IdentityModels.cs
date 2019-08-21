@@ -51,5 +51,7 @@ namespace FlavaSolutionsFinal.Models
             modelBuilder.Entity<IdentityUserLogin>().ToTable("UserLogins");
             modelBuilder.Entity<IdentityRole>().ToTable("Roles");
         }
+
+        public System.Data.Entity.DbSet<FlavaSolutionsFinal.Models.PaymentType> PaymentTypes { get; set; }
     }
 }

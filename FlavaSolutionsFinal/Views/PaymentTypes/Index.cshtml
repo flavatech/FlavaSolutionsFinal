@@ -1,0 +1,58 @@
+﻿@model IEnumerable<FlavaSolutionsFinal.Models.PaymentType>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+}
+
+<h3 class="alert alert-danger">List Payment Types</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Createdby)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Createdby)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PaymentTypeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PaymentTypeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PaymentTypeID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -13,18 +13,25 @@ namespace FlavaSolutionsFinal.Models
     {
         public int id { get; set; }
 
-        [Display(Name = "Plan")]
+        [Display(Name = "Select Plan")]
 
-        public Nullable<int> PlanID { get; set; }
+        public int? PlanID { get; set; }
+        public Plan Plan { get; set; }
 
-        [Display(Name = "Activity")]
+        [Display(Name = "Select Activity")]
    
-        public Nullable<int> ActivityID { get; set; }
+        public int? ActivityID { get; set; }
+        public Activity Activity { get; set; }
 
+
+        [Display(Name = "Period")]
+        public int? PeriodID { get; set; }
+        public Period Period { get; set; }
+        
         [Display(Name = "Payment Type")]
-    
-        public string PaymentType { get; set; }
-
+        public int? PaymentTypeID { get; set; }
+        public PaymentType PaymentType { get; set; }
+        
         [Display(Name = "Payment From Date")]
         [DataType(DataType.Date)]
         public DateTime? PaymentFromdt { get; set; }
@@ -35,7 +42,7 @@ namespace FlavaSolutionsFinal.Models
 
         [Display(Name = "Amount Paid")]
     
-        public Nullable<decimal> PaymentAmount { get; set; }
+        public decimal? PaymentAmount { get; set; }
 
         [Display(Name = "Expiry Date")]
         [DataType(DataType.Date)]

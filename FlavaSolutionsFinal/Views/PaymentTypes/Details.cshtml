@@ -1,0 +1,59 @@
+﻿@model FlavaSolutionsFinal.Models.PaymentType
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h3 class="alert alert-danger">PaymentType Details</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createdby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createdby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PaymentTypeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

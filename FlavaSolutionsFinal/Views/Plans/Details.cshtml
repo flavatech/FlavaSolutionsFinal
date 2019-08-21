@@ -2,16 +2,30 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
-
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2 class="alert alert-primary">Details</h2>
 
 <div>
-    <h4>Plan</h4>
+    <h3 class="alert alert-primary">Plan Details</h3>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Activity.ActivityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activity.ActivityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Period.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Period.Year)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.PlanName)
         </dt>
@@ -29,43 +43,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Createdby)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Createdby)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ModifiedBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ModifiedBy)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.RecStatus)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.RecStatus)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ActivityID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ActivityID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PeriodID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PeriodID)
         </dd>
 
         <dt>
@@ -85,6 +67,22 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Createdby)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createdby)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ModifiedDate)
         </dt>
 
@@ -95,7 +93,6 @@
     </dl>
 </div>
 <p>
-
     @Html.ActionLink("Edit", "Edit", new { id = Model.PlanID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

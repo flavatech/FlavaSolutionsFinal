@@ -237,7 +237,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PeriodsController.cs" />
-    <Compile Include="Controllers\PlansController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TrainersController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
@@ -332,14 +331,53 @@
     <Compile Include="Migrations\201908182224251_Updated-Activity-And-transactions.Designer.cs">
       <DependentUpon>201908182224251_Updated-Activity-And-transactions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908202140080_Added-Activity-Icollections.cs" />
+    <Compile Include="Migrations\201908202140080_Added-Activity-Icollections.Designer.cs">
+      <DependentUpon>201908202140080_Added-Activity-Icollections.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210011552_Added-Activity-Icollection3.cs" />
+    <Compile Include="Migrations\201908210011552_Added-Activity-Icollection3.Designer.cs">
+      <DependentUpon>201908210011552_Added-Activity-Icollection3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210203595_Added-transactions-model.cs" />
+    <Compile Include="Migrations\201908210203595_Added-transactions-model.Designer.cs">
+      <DependentUpon>201908210203595_Added-transactions-model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210207439_Added-transactions-model1.cs" />
+    <Compile Include="Migrations\201908210207439_Added-transactions-model1.Designer.cs">
+      <DependentUpon>201908210207439_Added-transactions-model1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210214439_Added-transactions-model2.cs" />
+    <Compile Include="Migrations\201908210214439_Added-transactions-model2.Designer.cs">
+      <DependentUpon>201908210214439_Added-transactions-model2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210240400_newtransactionmodel.cs" />
+    <Compile Include="Migrations\201908210240400_newtransactionmodel.Designer.cs">
+      <DependentUpon>201908210240400_newtransactionmodel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210358286_removed-Year.cs" />
+    <Compile Include="Migrations\201908210358286_removed-Year.Designer.cs">
+      <DependentUpon>201908210358286_removed-Year.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210415434_removed-Year2.cs" />
+    <Compile Include="Migrations\201908210415434_removed-Year2.Designer.cs">
+      <DependentUpon>201908210415434_removed-Year2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908210426172_removed-Year3.cs" />
+    <Compile Include="Migrations\201908210426172_removed-Year3.Designer.cs">
+      <DependentUpon>201908210426172_removed-Year3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Activity.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MemberAccount.cs" />
+    <Compile Include="Models\PaymentType.cs" />
+    <Compile Include="Controllers\PaymentTypesController.cs" />
     <Compile Include="Models\Period.cs" />
     <Compile Include="Models\Plan.cs" />
+    <Compile Include="Controllers\PlansController.cs" />
     <Compile Include="Models\Trainer.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2631,7 +2669,6 @@
     <Content Include="Views\Periods\Details.cshtml" />
     <Content Include="Views\Periods\Edit.cshtml" />
     <Content Include="Views\Periods\Index.cshtml" />
-    <Content Include="Views\Plans\Create.cshtml" />
     <Content Include="Views\Plans\Delete.cshtml" />
     <Content Include="Views\Plans\Details.cshtml" />
     <Content Include="Views\Plans\Edit.cshtml" />
@@ -2641,11 +2678,6 @@
     <Content Include="Views\Trainers\Details.cshtml" />
     <Content Include="Views\Trainers\Edit.cshtml" />
     <Content Include="Views\Trainers\Index.cshtml" />
-    <Content Include="Views\Transactions\Create.cshtml" />
-    <Content Include="Views\Transactions\Delete.cshtml" />
-    <Content Include="Views\Transactions\Details.cshtml" />
-    <Content Include="Views\Transactions\Edit.cshtml" />
-    <Content Include="Views\Transactions\Index.cshtml" />
     <Content Include="Theme2\.DS_Store" />
     <Content Include="Theme2\css\.DS_Store" />
     <Content Include="Theme2\css\bootstrap.map" />
@@ -2773,6 +2805,17 @@
     <Content Include="Views\Shared\MemberLayout.cshtml" />
     <Content Include="Views\Home\AdminProfile.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Plans\Create.cshtml" />
+    <Content Include="Views\PaymentTypes\Create.cshtml" />
+    <Content Include="Views\PaymentTypes\Delete.cshtml" />
+    <Content Include="Views\PaymentTypes\Details.cshtml" />
+    <Content Include="Views\PaymentTypes\Edit.cshtml" />
+    <Content Include="Views\PaymentTypes\Index.cshtml" />
+    <Content Include="Views\Transactions\Create.cshtml" />
+    <Content Include="Views\Transactions\Delete.cshtml" />
+    <Content Include="Views\Transactions\Details.cshtml" />
+    <Content Include="Views\Transactions\Edit.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2858,6 +2901,33 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908182224251_Updated-Activity-And-transactions.resx">
       <DependentUpon>201908182224251_Updated-Activity-And-transactions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908202140080_Added-Activity-Icollections.resx">
+      <DependentUpon>201908202140080_Added-Activity-Icollections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210011552_Added-Activity-Icollection3.resx">
+      <DependentUpon>201908210011552_Added-Activity-Icollection3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210203595_Added-transactions-model.resx">
+      <DependentUpon>201908210203595_Added-transactions-model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210207439_Added-transactions-model1.resx">
+      <DependentUpon>201908210207439_Added-transactions-model1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210214439_Added-transactions-model2.resx">
+      <DependentUpon>201908210214439_Added-transactions-model2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210240400_newtransactionmodel.resx">
+      <DependentUpon>201908210240400_newtransactionmodel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210358286_removed-Year.resx">
+      <DependentUpon>201908210358286_removed-Year.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210415434_removed-Year2.resx">
+      <DependentUpon>201908210415434_removed-Year2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908210426172_removed-Year3.resx">
+      <DependentUpon>201908210426172_removed-Year3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

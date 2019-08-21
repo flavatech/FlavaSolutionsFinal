@@ -53,7 +53,8 @@ namespace FlavaGymnSol.Controllers
             var thisRole = context.Roles.Where(r => r.Name.Equals(RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             context.Roles.Remove(thisRole);
             context.SaveChanges();
-            return RedirectToAction("Create");
+            ViewBag.ResultMessage =  "Role deleted successfully !";
+            return RedirectToAction("Index");
         }
 
         //
@@ -75,7 +76,7 @@ namespace FlavaGymnSol.Controllers
             {
                 context.Entry(role).State = System.Data.Entity.EntityState.Modified;
                 context.SaveChanges();
-
+                ViewBag.ResultMessage = "Role Changed successfully !";
                 return RedirectToAction("Index");
             }
             catch

@@ -2,38 +2,37 @@
 
 @{
     ViewBag.Title = "Delete";
-      Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2 class="alert alert-danger">Delete Transaction</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+<h3 class="alert alert-danger">Are you sure you want to delete this?</h3>
 <div>
-    <h4>Transaction</h4>
+    <h3>Delete Transaction</h3>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.PlanID)
+            @Html.DisplayNameFor(model => model.Activity.ActivityName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PlanID)
+            @Html.DisplayFor(model => model.Activity.ActivityName)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ActivityID)
+            @Html.DisplayNameFor(model => model.PaymentType.PaymentName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ActivityID)
+            @Html.DisplayFor(model => model.PaymentType.PaymentName)
         </dd>
 
+        
         <dt>
-            @Html.DisplayNameFor(model => model.PaymentType)
+            @Html.DisplayNameFor(model => model.Plan.PlanName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PaymentType)
+            @Html.DisplayFor(model => model.Plan.PlanName)
         </dd>
 
         <dt>

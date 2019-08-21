@@ -2,10 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
-      Layout = "~/Views/Shared/Custom/LoginLayout.cshtml";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2 class="alert alert-primary">Transaction Details</h2>
+<h3 class="alert alert-info">List transactions</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,13 +13,14 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.PlanID)
+            @Html.DisplayNameFor(model => model.Activity.ActivityName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ActivityID)
+            @Html.DisplayNameFor(model => model.PaymentType.PaymentName)
         </th>
+        
         <th>
-            @Html.DisplayNameFor(model => model.PaymentType)
+            @Html.DisplayNameFor(model => model.Plan.PlanName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PaymentFromdt)
@@ -54,13 +55,14 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.PlanID)
+            @Html.DisplayFor(modelItem => item.Activity.ActivityName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ActivityID)
+            @Html.DisplayFor(modelItem => item.PaymentType.PaymentName)
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.PaymentType)
+            @Html.DisplayFor(modelItem => item.Plan.PlanName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PaymentFromdt)

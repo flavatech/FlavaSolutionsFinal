@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
+     Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h2>Index</h2>
+<h3 class="alert alert-info">List of Periods</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -17,9 +18,7 @@
         <th>
             @Html.DisplayNameFor(model => model.FiscalyearToDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Year)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -31,9 +30,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.FiscalyearToDate)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
+       
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PeriodId }) |
             @Html.ActionLink("Details", "Details", new { id=item.PeriodId }) |
