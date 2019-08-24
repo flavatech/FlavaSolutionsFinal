@@ -1,0 +1,68 @@
+﻿@model FlavaSolutionsFinal.Models.Balance
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+}
+
+
+
+<div>
+    <h3 class=" alert alert-info">List Balances</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.memberAccount.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberAccount.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentAmount.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentAmount.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaymentType.PaymentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaymentType.PaymentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.planamount.PlanName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.planamount.PlanName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MBalance)
+        </dd>
+
+       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BalanceID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

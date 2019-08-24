@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h3 class="alert alert-info">List transactions</h3>
+<h3 class="alert alert-primary">Transaction List</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -16,9 +16,14 @@
             @Html.DisplayNameFor(model => model.Activity.ActivityName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.memberAccount.UserName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.PaymentType.PaymentName)
         </th>
-        
+        <th>
+            @Html.DisplayNameFor(model => model.Period.PeriodId)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Plan.PlanName)
         </th>
@@ -46,9 +51,6 @@
         <th>
             @Html.DisplayNameFor(model => model.ModifiedBy)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UserID)
-        </th>
         <th></th>
     </tr>
 
@@ -58,9 +60,14 @@
             @Html.DisplayFor(modelItem => item.Activity.ActivityName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.memberAccount.UserName)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.PaymentType.PaymentName)
         </td>
-       
+        <td>
+            @Html.DisplayFor(modelItem => item.Period.PeriodId)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Plan.PlanName)
         </td>
@@ -89,12 +96,9 @@
             @Html.DisplayFor(modelItem => item.ModifiedBy)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UserID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.TransactionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TransactionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TransactionId })
         </td>
     </tr>
 }

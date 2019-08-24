@@ -28,6 +28,6 @@ namespace FlavaSolutionsFinal.Models
         public ICollection<Plan> Plans { get; set; }
 
         [NotMapped]
-        public ICollection<Transaction> Transactions { get; set; }
+       public ICollection<Transaction> Transactions { get; set; }
     }
 }

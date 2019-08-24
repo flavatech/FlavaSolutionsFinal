@@ -12,7 +12,7 @@ namespace FlavaSolutionsFinal.Models
 {
     public class Plan
     {
-      
+
         public int PlanID { get; set; }
 
         [Required(ErrorMessage = "Enter Plan Name")]
@@ -23,7 +23,7 @@ namespace FlavaSolutionsFinal.Models
         [Display(Name = "Plan Amount")]
         public Double? PlanAmount { get; set; }
 
-       [Display(Name = "Activity")]
+        [Display(Name = "Activity")]
         public int? ActivityID { get; set; }
         public Activity Activity { get; set; }
 
@@ -51,6 +51,9 @@ namespace FlavaSolutionsFinal.Models
 
         [NotMapped]
         public ICollection<Transaction> Transactions { get; set; }
+        [NotMapped]
+        public ICollection<Balance> Balances { get; set; }
+
 
 
 

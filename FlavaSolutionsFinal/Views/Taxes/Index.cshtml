@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FlavaSolutionsFinal.Models.Taxes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+}
+<h3 class="alert alert-primary">List Taxes</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TaxName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesTax)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TaxName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTax)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TaxID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TaxID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TaxID })
+        </td>
+    </tr>
+}
+
+</table>

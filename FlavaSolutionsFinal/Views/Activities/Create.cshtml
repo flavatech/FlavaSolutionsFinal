@@ -1,9 +1,11 @@
 ﻿@model FlavaSolutionsFinal.Models.Activity
 
 @{
-    ViewBag.Title = "Create";
- Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
-    }
+                /**/
+
+                ViewBag.Title = "Create";
+                Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+}
 
 
 
@@ -24,9 +26,9 @@
             </div>
         </div>
 
-         <div class="form-group">
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </div>
     </div>
@@ -36,6 +38,7 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
@@ -43,9 +46,9 @@
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#Createddate").datepicker();
+            $("#Createddate").datepicker({ dateFormat: 'dd-mm-yy' }).val();
         });
     </script>
-
-
+    /**/
+    /**/
 }

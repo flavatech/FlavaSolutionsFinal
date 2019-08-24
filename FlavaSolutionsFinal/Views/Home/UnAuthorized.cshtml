@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "UnAuthorized";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+}
+
+<h2>UnAuthorized, Hi <b>@Context.User.Identity.Name</b></h2>, Your are not Authorized to view this page.
+<div>
+    @Html.ActionLink("Back to Main", "Home")
+</div>
+

@@ -11,7 +11,13 @@ namespace FlavaSolutionsFinal.Models
 {
     public class Transaction
     {
-        public int id { get; set; }
+        [Key]
+        public int TransactionId { get; set; }
+
+        [Display(Name = "Select Member")]
+
+        public int? MemberID { get; set; }
+        public MemberAccount memberAccount { get; set; }
 
         [Display(Name = "Select Plan")]
 
@@ -19,7 +25,7 @@ namespace FlavaSolutionsFinal.Models
         public Plan Plan { get; set; }
 
         [Display(Name = "Select Activity")]
-   
+
         public int? ActivityID { get; set; }
         public Activity Activity { get; set; }
 
@@ -27,11 +33,11 @@ namespace FlavaSolutionsFinal.Models
         [Display(Name = "Period")]
         public int? PeriodID { get; set; }
         public Period Period { get; set; }
-        
+
         [Display(Name = "Payment Type")]
         public int? PaymentTypeID { get; set; }
         public PaymentType PaymentType { get; set; }
-        
+
         [Display(Name = "Payment From Date")]
         [DataType(DataType.Date)]
         public DateTime? PaymentFromdt { get; set; }
@@ -40,8 +46,9 @@ namespace FlavaSolutionsFinal.Models
         [DataType(DataType.Date)]
         public DateTime? PaymentTodt { get; set; }
 
+
         [Display(Name = "Amount Paid")]
-    
+
         public decimal? PaymentAmount { get; set; }
 
         [Display(Name = "Expiry Date")]
@@ -61,7 +68,8 @@ namespace FlavaSolutionsFinal.Models
 
         [Display(Name = "Modified By")]
         public string ModifiedBy { get; set; }
-        public Nullable<long> UserID { get; set; }
-     
+
+        [NotMapped]
+        public ICollection<Balance> Balances { get; set; }
     }
 }

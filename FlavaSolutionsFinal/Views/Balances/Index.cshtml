@@ -1,0 +1,75 @@
+﻿@model IEnumerable<FlavaSolutionsFinal.Models.Balance>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+}
+
+<h3 class="alert alert-primary">List Balances</h3>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.memberAccount.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentAmount.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentType.PaymentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.planamount.PlanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MBalance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberAccount.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentAmount.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentType.PaymentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.planamount.PlanName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MBalance)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BalanceID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BalanceID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BalanceID })
+        </td>
+    </tr>
+}
+
+</table>

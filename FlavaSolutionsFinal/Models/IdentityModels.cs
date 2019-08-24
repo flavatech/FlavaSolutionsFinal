@@ -53,5 +53,9 @@ namespace FlavaSolutionsFinal.Models
         }
 
         public System.Data.Entity.DbSet<FlavaSolutionsFinal.Models.PaymentType> PaymentTypes { get; set; }
+
+        public System.Data.Entity.DbSet<FlavaSolutionsFinal.Models.Taxes> Taxes { get; set; }
+
+        public System.Data.Entity.DbSet<FlavaSolutionsFinal.Models.Balance> Balances { get; set; }
     }
 }

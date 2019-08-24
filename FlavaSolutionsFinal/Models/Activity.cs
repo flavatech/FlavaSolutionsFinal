@@ -11,11 +11,11 @@ namespace FlavaSolutionsFinal.Models
 {
     public class Activity
     {
-     
+
         public int ActivityID { get; set; }
         [Display(Name = "Activity")]
         [Required(ErrorMessage = "Please enter Activity Name")]
-       
+
         public string ActivityName { get; set; }
 
         [Display(Name = "Created By")]
@@ -35,6 +35,7 @@ namespace FlavaSolutionsFinal.Models
         public ICollection<Plan> Plans { get; set; }
 
         [NotMapped]
-        public ICollection<Transaction> Transactions { get; set; }
+         public ICollection<Transaction> Transactions { get; set; }
+
     }
 }
