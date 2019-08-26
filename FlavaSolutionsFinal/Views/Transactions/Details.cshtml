@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-
+<h2>Details</h2>
 
 <div>
     <h3 class="alert alert-info">Transaction Details</h3>
@@ -36,11 +36,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Period.PeriodId)
+            @Html.DisplayNameFor(model => model.PeriodName.PeriodName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Period.PeriodId)
+            @Html.DisplayFor(model => model.PeriodName.PeriodName)
         </dd>
 
         <dt>
@@ -49,6 +49,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.Plan.PlanName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalesTax.TaxName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalesTax.TaxName)
         </dd>
 
         <dt>
@@ -68,11 +76,27 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PaymentAmount)
+            @Html.DisplayNameFor(model => model.AmountDue)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PaymentAmount)
+            @Html.DisplayFor(model => model.AmountDue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AmountPaid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AmountPaid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
         </dd>
 
         <dt>

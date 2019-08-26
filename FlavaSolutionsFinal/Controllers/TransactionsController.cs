@@ -17,7 +17,7 @@ namespace FlavaSolutionsFinal.Controllers
         // GET: Transactions
         public ActionResult Index()
         {
-            var transactions = db.transactions.Include(t => t.Activity).Include(t => t.memberAccount).Include(t => t.PaymentType).Include(t => t.Period).Include(t => t.Plan);
+            var transactions = db.transactions.Include(t => t.Activity).Include(t => t.memberAccount).Include(t => t.PaymentType).Include(t => t.PeriodName).Include(t => t.Plan).Include(t => t.SalesTax);
             return View(transactions.ToList());
         }
 
@@ -42,8 +42,9 @@ namespace FlavaSolutionsFinal.Controllers
             ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName");
             ViewBag.MemberID = new SelectList(db.memberAccounts, "MemberID", "UserName");
             ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName");
-            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodId");
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodName");
             ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName");
+            ViewBag.TaxID = new SelectList(db.Taxes, "TaxID", "TaxName");
             return View();
         }
 
@@ -52,10 +53,11 @@ namespace FlavaSolutionsFinal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransactionId,MemberID,PlanID,ActivityID,PeriodID,PaymentTypeID,PaymentFromdt,PaymentTodt,PaymentAmount,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy")] Transaction transaction)
+        public ActionResult Create([Bind(Include = "TransactionId,MemberID,PlanID,ActivityID,PeriodID,PaymentTypeID,PaymentFromdt,PaymentTodt,AmountDue,TaxID,AmountPaid,Balance,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
+                transaction.Balance = transaction.AmountDue - (transaction.AmountPaid);
                 transaction.NextRenwalDate = transaction.PaymentTodt;
                 transaction.CreatedDate = DateTime.Now;
                 transaction.CreatedBy = User.Identity.Name;
@@ -67,8 +69,9 @@ namespace FlavaSolutionsFinal.Controllers
             ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName", transaction.ActivityID);
             ViewBag.MemberID = new SelectList(db.memberAccounts, "MemberID", "UserName", transaction.MemberID);
             ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName", transaction.PaymentTypeID);
-            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodId", transaction.PeriodID);
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodName", transaction.PeriodID);
             ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName", transaction.PlanID);
+            ViewBag.TaxID = new SelectList(db.Taxes, "TaxID", "TaxName", transaction.TaxID);
             return View(transaction);
         }
 
@@ -87,8 +90,9 @@ namespace FlavaSolutionsFinal.Controllers
             ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName", transaction.ActivityID);
             ViewBag.MemberID = new SelectList(db.memberAccounts, "MemberID", "UserName", transaction.MemberID);
             ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName", transaction.PaymentTypeID);
-            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodId", transaction.PeriodID);
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodName", transaction.PeriodID);
             ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName", transaction.PlanID);
+            ViewBag.TaxID = new SelectList(db.Taxes, "TaxID", "TaxName", transaction.TaxID);
             return View(transaction);
         }
 
@@ -97,10 +101,12 @@ namespace FlavaSolutionsFinal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "TransactionId,MemberID,PlanID,ActivityID,PeriodID,PaymentTypeID,PaymentFromdt,PaymentTodt,PaymentAmount,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy")] Transaction transaction)
+        public ActionResult Edit([Bind(Include = "TransactionId,MemberID,PlanID,ActivityID,PeriodID,PaymentTypeID,PaymentFromdt,PaymentTodt,AmountDue,TaxID,AmountPaid,Balance,NextRenwalDate,CreatedDate,CreatedBy,ModifiedDate,ModifiedBy")] Transaction transaction)
         {
             if (ModelState.IsValid)
             {
+                transaction.Balance = transaction.AmountDue - (transaction.AmountPaid);
+                transaction.NextRenwalDate = transaction.PaymentTodt;
                 transaction.ModifiedDate = DateTime.Now;
                 transaction.ModifiedBy = User.Identity.Name;
                 db.Entry(transaction).State = EntityState.Modified;
@@ -110,8 +116,9 @@ namespace FlavaSolutionsFinal.Controllers
             ViewBag.ActivityID = new SelectList(db.activities, "ActivityID", "ActivityName", transaction.ActivityID);
             ViewBag.MemberID = new SelectList(db.memberAccounts, "MemberID", "UserName", transaction.MemberID);
             ViewBag.PaymentTypeID = new SelectList(db.PaymentTypes, "PaymentTypeID", "PaymentName", transaction.PaymentTypeID);
-            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodId", transaction.PeriodID);
+            ViewBag.PeriodID = new SelectList(db.periods, "PeriodId", "PeriodName", transaction.PeriodID);
             ViewBag.PlanID = new SelectList(db.plans, "PlanID", "PlanName", transaction.PlanID);
+            ViewBag.TaxID = new SelectList(db.Taxes, "TaxID", "TaxName", transaction.TaxID);
             return View(transaction);
         }
 

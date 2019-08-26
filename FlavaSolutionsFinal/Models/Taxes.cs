@@ -18,7 +18,6 @@ namespace FlavaSolutionsFinal.Models
        public ICollection<Transaction> Transactions { get; set; }
 
 
-        [NotMapped]
-        public ICollection<Balance> Balances { get; set; }
+       
     }
 }

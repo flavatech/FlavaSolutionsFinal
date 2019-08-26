@@ -32,7 +32,7 @@ namespace FlavaSolutionsFinal.Models
 
         [Display(Name = "Period")]
         public int? PeriodID { get; set; }
-        public Period Period { get; set; }
+        public Period PeriodName { get; set; }
 
         [Display(Name = "Payment Type")]
         public int? PaymentTypeID { get; set; }
@@ -47,9 +47,21 @@ namespace FlavaSolutionsFinal.Models
         public DateTime? PaymentTodt { get; set; }
 
 
+        [Display(Name = "Amount Due")]
+
+        public decimal? AmountDue { get; set; }
+
+        public int? TaxID { get; set; }
+        public Taxes SalesTax { get; set; }
+
         [Display(Name = "Amount Paid")]
 
-        public decimal? PaymentAmount { get; set; }
+        public decimal? AmountPaid { get; set; }
+
+
+        [Display(Name = "Balance")]
+
+        public decimal? Balance { get; set; }
 
         [Display(Name = "Expiry Date")]
         [DataType(DataType.Date)]
@@ -69,7 +81,8 @@ namespace FlavaSolutionsFinal.Models
         [Display(Name = "Modified By")]
         public string ModifiedBy { get; set; }
 
-        [NotMapped]
-        public ICollection<Balance> Balances { get; set; }
+
+
+
     }
 }

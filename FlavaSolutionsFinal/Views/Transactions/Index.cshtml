@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
-<h3 class="alert alert-primary">Transaction List</h3>
+<h3 class="alert alert-primary">List Transactions</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -22,10 +22,13 @@
             @Html.DisplayNameFor(model => model.PaymentType.PaymentName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Period.PeriodId)
+            @Html.DisplayNameFor(model => model.PeriodName.PeriodName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Plan.PlanName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalesTax.TaxName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PaymentFromdt)
@@ -34,7 +37,13 @@
             @Html.DisplayNameFor(model => model.PaymentTodt)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PaymentAmount)
+            @Html.DisplayNameFor(model => model.AmountDue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountPaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NextRenwalDate)
@@ -66,10 +75,13 @@
             @Html.DisplayFor(modelItem => item.PaymentType.PaymentName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Period.PeriodId)
+            @Html.DisplayFor(modelItem => item.PeriodName.PeriodName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Plan.PlanName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalesTax.TaxName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PaymentFromdt)
@@ -78,7 +90,13 @@
             @Html.DisplayFor(modelItem => item.PaymentTodt)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PaymentAmount)
+            @Html.DisplayFor(modelItem => item.AmountDue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmountPaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NextRenwalDate)

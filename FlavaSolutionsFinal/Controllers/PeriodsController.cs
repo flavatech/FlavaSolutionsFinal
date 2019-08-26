@@ -46,7 +46,7 @@ namespace FlavaSolutionsFinal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PeriodId,FiscalyearFromDate,FiscalyearToDate,Year")] Period period)
+        public ActionResult Create([Bind(Include = "PeriodId,PeriodName,FiscalyearFromDate,FiscalyearToDate")] Period period)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace FlavaSolutionsFinal.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PeriodId,FiscalyearFromDate,FiscalyearToDate,Year")] Period period)
+        public ActionResult Edit([Bind(Include = "PeriodId,PeriodName,FiscalyearFromDate,FiscalyearToDate")] Period period)
         {
             if (ModelState.IsValid)
             {

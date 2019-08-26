@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Edit";
-     Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
+    Layout = "~/Views/Shared/Custom/AdminDash1.cshtml";
 }
 
+2>
 
 
 @using (Html.BeginForm())
@@ -16,6 +17,14 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.PeriodId)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PeriodName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PeriodName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PeriodName, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FiscalyearFromDate, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -33,11 +42,9 @@
             </div>
         </div>
 
-        
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-warning"
-                       />
+                <input type="submit" value="Save" class="btn btn-warning" />
             </div>
         </div>
     </div>
